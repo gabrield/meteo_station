@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mm_project current="1" serial_port="ttyUSB2" programmer="" board="Arduino Nano w/ ATmega328" includePaths=";$(LIBRARIES)/DHT;$(LIBRARIES)/dallas;$(LIBRARIES)/Wire;$(LIBRARIES)/Wire/utility;$(LIBRARIES)/dallas;$(LIBRARIES)/Will;$(LIBRARIES)/OneWire" libPaths="" srcPaths="" libs="" useCodeAutomation="0" linkPrintfVersion="0" serialPortSpeed="" isLibrary="0">
+    <files>
+        <file name="WeatherStation.cpp" open="yes"/>
+    </files>
+    <externals>
+        <external name="dallas/DallasTemperature.cpp" open="no"/>
+        <external name="dallas/DallasTemperature.h" open="no"/>
+        <external name="OneWire/OneWire.cpp" open="no"/>
+        <external name="OneWire/OneWire.h" open="no"/>
+    </externals>
+</mm_project>
