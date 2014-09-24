@@ -30,6 +30,6 @@ extern int h_errno;
 
 
 ssize_t ts_http_post(ts_context_t *, char *, char *, char *);
-char   *ts_http_get(ts_context_t *, char *, char *);
+char   *ts_http_get(char *, char *);
 
 #endif /*_TS_HTTP_*/

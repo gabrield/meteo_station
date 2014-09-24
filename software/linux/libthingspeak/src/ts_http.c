@@ -68,7 +68,7 @@ ssize_t ts_http_post(ts_context_t *ctx, char *host, char *page, char *poststr)
 
 
 
-char *ts_http_get(ts_context_t *ctx, char *host, char *page)
+char *ts_http_get(char *host, char *page)
 {
 	int sockfd;
 	FILE *sockwrap = NULL;
