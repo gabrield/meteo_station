@@ -4,15 +4,11 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-
 #define TS_MAX_DATASTREAMS       16
 #define TS_MAX_DATASTREAM_NAME   16
 #define TS_VALUE_STRING_MAX_SIZE 16
 
 typedef uint32_t ts_feed_id_t;
-
-
-
 
 
 /** Datapoint value types */
@@ -29,7 +25,7 @@ typedef enum
 typedef union {
     int32_t i32_value;
     float   f32_value;
-    char    str_value[ TS_VALUE_STRING_MAX_SIZE ];
+    char    str_value[TS_VALUE_STRING_MAX_SIZE];
 } ts_datapoint_value_t;
 
 
@@ -59,7 +55,7 @@ typedef struct
 
 typedef struct 
 {
-    char *api_key;              /** ThingSpeak API key */
+    char api_key[16 + 1];              /** ThingSpeak API key */
     ts_feed_id_t feed_id;       /** ThingSpeak feed ID */
 } ts_context_t;
 
@@ -85,8 +81,6 @@ ts_datapoint_t *ts_set_value_f32(ts_datapoint_t *, float);
 float ts_get_value_f32(ts_datapoint_t *);
 
 
-
-
-
+int32_t ts_datastream_update(ts_context_t*, ts_feed_id_t, char *, ts_datapoint_t *);
 
 #endif

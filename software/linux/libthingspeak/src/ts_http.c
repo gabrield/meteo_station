@@ -1,3 +1,4 @@
+#include <thingspeak.h>
 #include <ts_http.h>
 
 
