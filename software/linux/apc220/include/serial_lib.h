@@ -10,6 +10,8 @@
 
 #include <stdint.h>   // Standard types 
 
+#define MAX_BUFF 256
+
 int serialport_init(const char* serialport, int baud);
 int serialport_close(int fd);
 int serialport_writebyte( int fd, uint8_t b);

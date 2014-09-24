@@ -13,6 +13,8 @@ typedef uint32_t ts_feed_id_t;
 
 
 
+
+
 /** Datapoint value types */
 typedef enum
 {   /** 32-bit signed integer */
@@ -68,13 +70,9 @@ typedef struct
 } ts_response_t;
 
 
-
-
-
-
 ts_context_t *ts_create_context(char *, ts_feed_id_t);
 
-void inline ts_delete_context(ts_context_t *);
+void ts_delete_context(ts_context_t *);
 
 
 ts_datapoint_t *ts_set_value_i32(ts_datapoint_t *, int32_t);
