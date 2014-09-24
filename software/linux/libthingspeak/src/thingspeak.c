@@ -69,7 +69,7 @@ int32_t ts_datastream_update(ts_context_t* ctx, ts_feed_id_t feed_id, char * dat
 			break;
 	}
 
-	printf("OPA ==== %s\n", num);
+
 	if(feed_id == 0)
 	{
 		n = ts_http_post(ctx, HOST_API, "/update", num);
@@ -89,7 +89,10 @@ int32_t ts_datastream_update(ts_context_t* ctx, ts_feed_id_t feed_id, char * dat
 	return 0;
 }
 
-
+char *ts_datastream_get(ts_context_t* ctx, ts_feed_id_t feed_id, char * datastream_id)
+{
+	return NULL;
+}
 
 
 

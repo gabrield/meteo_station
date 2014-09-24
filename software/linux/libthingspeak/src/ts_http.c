@@ -157,6 +157,8 @@ char *ts_http_get(char *host, char *page)
     
 
     /*printf("%s", buffer);*/
+    fclose(sockwrap);
+    close(sockfd);
 
     http_ans = (char*) buffer;
 	
