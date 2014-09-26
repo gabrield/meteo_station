@@ -6,6 +6,10 @@
   and providing simple wrapper methods that will enable users to implement
   a very functional ThingSpeak agent application on an platform that supports BSD sockets.
 
+  This library is still in early development stage, so, do not expect too much from it,
+  but it's being improved as  far as my needs go - and maybe yours (just le me know 
+  or send a pull request :D ).
+
 ## Get started
 
 Run this from the shell:
