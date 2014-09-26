@@ -14,12 +14,22 @@ typedef uint32_t ts_feed_id_t;
 /** Datapoint value types */
 typedef enum
 {   /** 32-bit signed integer */
-    TS_VALUE_TYPE_I32 = 0,
+    TS_VALUE_TYPE_I32 = 0 ,
     /** 32-bit floating point number */
     TS_VALUE_TYPE_F32,
     /** any string-econded data */
     TS_VALUE_TYPE_STR
 } ts_value_type_t;
+
+
+/** Response value types */
+typedef enum
+{   
+    TS_DATA_CSV = 0,
+    TS_DATA_XML,
+    TS_DATA_JSON
+} ts_data_type_t;
+
 
 
 typedef union {
@@ -83,6 +93,6 @@ float ts_get_value_f32(ts_datapoint_t *);
 
 int32_t ts_datastream_update(ts_context_t*, ts_feed_id_t, char *, ts_datapoint_t *);
 
-char *ts_datastream_get(ts_context_t *, ts_feed_id_t, char *);
+char *ts_datastream_get(ts_context_t *, ts_feed_id_t,  ts_data_type_t type);
 
 #endif

@@ -4,12 +4,16 @@
 
 ts_context_t *ts_create_context(char *api_key, ts_feed_id_t feed_id)
 {
-	ts_context_t *ctx = (ts_context_t*)malloc(sizeof(ts_context_t));
-	bzero(ctx->api_key, 16);
-	strcpy(ctx->api_key, api_key);
-	ctx->api_key[16] = '\0';
-	ctx->feed_id = feed_id;
+	ts_context_t *ctx = NULL;
 
+	if(api_key != NULL)
+	{
+		ctx = (ts_context_t*)malloc(sizeof(ts_context_t));
+		bzero(ctx->api_key, 16);
+		strcpy(ctx->api_key, api_key);
+		ctx->api_key[16] = '\0';
+		ctx->feed_id = feed_id;
+	}
 	return ctx;
 }
 
@@ -89,10 +93,38 @@ int32_t ts_datastream_update(ts_context_t* ctx, ts_feed_id_t feed_id, char * dat
 	return 0;
 }
 
-char *ts_datastream_get(ts_context_t* ctx, ts_feed_id_t feed_id, char * datastream_id)
+
+
+char *ts_datastream_get(ts_context_t* ctx, ts_feed_id_t feed_id, ts_data_type_t type)
 {
-	return NULL;
+	char *ans          = NULL;
+	uint32_t id        = 0;
+	char  page[128] = {0};
+//	ts_context_t* tsx  = NULL;
+// http://api.thingspeak.com/channels/16258/feeds.json
+
+
+	id = (feed_id == 0) ? ctx->feed_id : feed_id;
+
+	switch(type)
+	{
+		case TS_DATA_CSV:
+			sprintf(page, "/channels/%d/feeds.csv", id);
+			break;
+		case TS_DATA_XML:
+			sprintf(page, "/channels/%d/feeds.xml", id);
+			break;
+		case TS_DATA_JSON:
+			sprintf(page, "/channels/%d/feeds.json", id);
+			break;
+	}
+
+#if TS_DEBUG
+	printf("%s\n", page);
+#endif	
+
+	ans = ts_http_get(HOST_API, page);
+
+
+	return ans;
 }
-
-
-
